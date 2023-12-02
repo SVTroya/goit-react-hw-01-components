@@ -1,4 +1,6 @@
-.item {
+import styled from "styled-components"
+
+export const Item = styled.div`
   width: 280px;
   border-radius: 3px;
   background-color: #FFF;
@@ -9,40 +11,31 @@
   display: flex;
   gap: 20px;
   align-items: center;
-}
+`
 
-.status {
+export const Status = styled.span`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: red;
-  border: 1px solid #d00000;
-  box-shadow: inset 0 0 4px 4px rgba(208, 0, 0, 0.5);
-}
+  background-color: ${({ $isOnline }) => $isOnline ? "#2CAD2C" : "#FF0000"};
+  border: ${({ $isOnline }) => {
+    return `1px solid ${$isOnline ? "#008d00" : "#d00000"}`
+  }};
+  box-shadow: ${({ $isOnline }) => {
+    return `inset 0 0 4px 4px ${$isOnline ? "#008D007F" : "#D000007F"}`
+  }};
+`
 
-.status.isOnline {
-  /*composes: status;*/
-  background-color: #2cad2c;
-  border: 1px solid #008d00;
-  box-shadow: inset 0 0 4px 4px rgba(0, 141, 0, 0.5);
-}
-
-/*.isOffline {
-  composes: status;
-  background-color: red;
-  border: 2px solid #af0101;
-}*/
-
-.avatar {
+export const Avatar = styled.img`
   width: 75px;
   height: 75px;
   border-radius: 5px;
   background-color: #F3F6F9;
   border: 2px solid #EAEEF3;
   padding: 4px;
-}
+`
 
-.name {
+export const Name = styled.p`
   font-size: 25px;
   font-weight: 500;
-}
+`

@@ -1,4 +1,6 @@
-.statistics {
+import styled from "styled-components"
+
+export const StatCard = styled.div`
   width: 280px;
   border-radius: 4px;
   background-color: #FFF;
@@ -6,26 +8,27 @@
   0 0 6px 1px rgba(46, 47, 66, 0.16),
   0 0 8px 1px rgba(46, 47, 66, 0.08);
   overflow: hidden;
-}
+`
 
-.title {
+export const Title = styled.h2`
   color: #132236;
   font-size: 24px;
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
   margin: 20px 0;
-}
+`
 
-.statList {
+export const StatList = styled.ul`
   height: 60px;
   display: flex;
   justify-content: space-between;
-}
+`
 
-.item {
+export const StatItem = styled.li`
   color: #FFF;
-  background-color: chocolate;
+  background-color: ${({ $bgColor }) => $bgColor};
+  /*background-color: ${getRandomHexColor()};*/
   height: 100%;
   width: 20%;
   font-size: 14px;
@@ -34,9 +37,14 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-}
+`
 
-.percentage {
+export const Percentage = styled.span`
   font-size: 16px;
   font-weight: 500;
+`
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`
 }

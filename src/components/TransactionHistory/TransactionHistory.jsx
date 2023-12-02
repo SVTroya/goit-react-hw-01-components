@@ -1,9 +1,9 @@
-import css from "./TransactionHistory.module.css"
-import clsx from "clsx"
+import PropTypes from "prop-types"
+import { TransactionsTable } from "./TransactionHistory.styled"
 
 export function TransactionHistory({ transactions }) {
   return (
-    <table className={clsx(css.transactionHistory)}>
+    <TransactionsTable>
       <thead>
       <tr>
         <th>Type</th>
@@ -22,6 +22,17 @@ export function TransactionHistory({ transactions }) {
       ))
       }
       </tbody>
-    </table>
+    </TransactionsTable>
   )
+}
+
+TransactionHistory.propTypes = {
+  transactions: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      type: PropTypes.string,
+      amount: PropTypes.string,
+      currency: PropTypes.string,
+    }),
+  ),
 }
